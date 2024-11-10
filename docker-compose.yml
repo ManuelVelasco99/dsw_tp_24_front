@@ -1,0 +1,16 @@
+services:
+
+  angular:
+    image: node:18
+    working_dir: /app
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    environment:
+      - NG_CLI_ANALYTICS=false
+    ports:
+      - "${APP_PORT_OUT}:${APP_PORT_IN}"
+    command: sh -c "npm install && npx ng serve --host 0.0.0.0"
+    stdin_open: true
+    tty: true
