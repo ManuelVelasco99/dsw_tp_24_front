@@ -1,0 +1,35 @@
+<mat-toolbar>
+    @if (!deviceService.isMobile) {
+    <div class="opciones-menu">
+        <button mat-raised-button routerLink="/establecimientos">Establecimientos</button>
+        <button mat-raised-button routerLink="/especialidades">Especialidades</button>
+        <button mat-raised-button routerLink="/profesionales">Profesionales</button>
+        <button mat-raised-button routerLink="/turnos/reservar">Reservar turno</button>
+    </div>
+    }
+
+    @if (deviceService.isMobile) {
+    <button mat-mini-fab aria-label="Example icon button with a home icon" (click)="toggleSidenav()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    }
+</mat-toolbar>
+
+
+
+
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="over" [autoFocus]="false">
+        <div class="opciones-menu-mobile">
+            <button mat-button routerLink="/establecimientos">Establecimientos</button>
+            <button mat-button routerLink="/especialidades">Especialidades</button>
+            <button mat-button routerLink="/profesionales">Profesionales</button>
+            <button mat-button routerLink="/turnos/reservar">Reservar turno</button>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <ng-content></ng-content>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+

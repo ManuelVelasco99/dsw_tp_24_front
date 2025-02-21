@@ -1,0 +1,30 @@
+
+mat-toolbar{
+    background-color: var(--mdc-filled-button-container-color, var(--mat-app-primary));
+
+    .opciones-menu{
+        display: flex;
+        column-gap: 16px;
+    }
+}
+
+.sidenav-container{
+    display: flex; 
+
+    @media (max-width: 1024px) {
+    height: calc(100% - 56px);
+    overflow: scroll;
+    }
+
+    mat-sidenav{
+        width: 75%;
+        max-width: 300px;
+    }
+
+    .opciones-menu-mobile{
+        margin-top: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+}

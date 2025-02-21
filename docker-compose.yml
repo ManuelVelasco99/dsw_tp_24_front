@@ -9,8 +9,11 @@ services:
       - .env
     environment:
       - NG_CLI_ANALYTICS=false
+      - CHOKIDAR_USEPOLLING=true
+      - CHOKIDAR_INTERVAL=1000
     ports:
       - "${APP_PORT_OUT}:${APP_PORT_IN}"
-    command: sh -c "npm install && npx ng serve --host 0.0.0.0"
+      - "49153:49153"
+    command: sh -c "npm install && npx ng serve --host 0.0.0.0 --poll 500"
     stdin_open: true
     tty: true
